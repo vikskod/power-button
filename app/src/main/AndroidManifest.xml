@@ -20,7 +20,7 @@
         </activity>
 
         <service
-            android:name="com.example.UpdateService"
+            android:name="com.example.BackgroundService"
             android:process=":something" />
 
         <receiver android:name="com.example.BootReceiver">

@@ -15,7 +15,7 @@ public class PowerButtonReceiver extends BroadcastReceiver {
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             screenOff = false;
         }
-        Intent i = new Intent(context, UpdateService.class);
+        Intent i = new Intent(context, BackgroundService.class);
         i.putExtra("screen_state", screenOff);
         context.startService(i);
     }

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startService(new Intent(this, UpdateService.class));
+        startService(new Intent(this, BackgroundService.class));
         update();
     }
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPriority(NotificationCompat.PRIORITY_MIN)
                 .setContentTitle("PowerButtonCounter")
                 .setContentText("Count: " + Storage.getInstance(this).getCount());
-        mNotificationManager.notify(UpdateService.mId, mNotifyBuilder.build());
+        mNotificationManager.notify(BackgroundService.mId, mNotifyBuilder.build());
     }
 
     public void reset(View view){
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void stop(View view){
-        stopService(new Intent(this, UpdateService.class));
+        stopService(new Intent(this, BackgroundService.class));
         finish();
     }
 
